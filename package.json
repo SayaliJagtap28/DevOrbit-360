@@ -1,0 +1,10 @@
+{
+  "name": "devorbit-360",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:server": "npm install --prefix server",
+    "start": "npm --prefix server start",
+    "dev": "npm --prefix server run dev"
+  }
+}

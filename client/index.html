@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f8fc" />
+    <meta name="description" content="DevOrbit 360 brings your developer profile, career insights, and learning roadmap together." />
+    <title>DevOrbit 360 — Career intelligence for developers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section id="authScreen" class="auth-screen" hidden></section>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#overview" aria-label="DevOrbit home"><span class="brand-mark">D<span>✳</span></span><span>devorbit<span class="brand-light">360</span></span></a>
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <button class="nav-item active" data-page="overview"><span class="nav-icon">◫</span>Overview</button>
+          <button class="nav-item" data-page="profile"><span class="nav-icon">◉</span>My profile</button>
+          <button class="nav-item" data-page="developer-links"><span class="nav-icon">⌘</span>Developer links</button>
+          <button class="nav-item" data-page="projects"><span class="nav-icon">▧</span>Projects <span class="nav-count" id="projectNavCount">4</span></button>
+          <button class="nav-item" data-page="certifications"><span class="nav-icon">✦</span>Certifications</button>
+          <button class="nav-item" data-page="skills"><span class="nav-icon">⌘</span>Skill gap</button>
+          <button class="nav-item" data-page="roadmap"><span class="nav-icon">⌁</span>Learning roadmap</button>
+          <button class="nav-item" data-page="resume"><span class="nav-icon">▤</span>Resume studio</button>
+          <button class="nav-item" data-page="assistant"><span class="nav-icon">✧</span>AI study buddy <span class="nav-count">AI</span></button>
+          <button class="nav-item" data-page="portfolio"><span class="nav-icon">↗</span>Portfolio</button>
+          <button class="nav-item" data-page="help"><span class="nav-icon">ⓘ</span>Help center</button>
+          <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span>Account settings</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="sidebar-tip"><div class="tip-icon">✦</div><strong>Your next chapter</strong><p>Small steps today build the career you want tomorrow.</p><button data-page="roadmap">View your roadmap <span>→</span></button></div>
+          <div class="user-card"><div class="avatar">AK</div><div class="user-meta"><strong id="sideName">Alex Kim</strong><span>Connected workspace</span></div><button class="more-button" aria-label="Sign out" data-logout>↪</button></div>
+        </div>
+      </aside>
+      <main class="main-area">
+        <header class="topbar"><button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button><div class="breadcrumb">Workspace <span>/</span> <strong id="crumb">Overview</strong></div><div class="top-actions"><span class="today-label" id="todayLabel"></span><button class="icon-button" aria-label="Notifications" data-toast="You’re all caught up.">♧<i></i></button><div class="profile-menu" id="profileMenu"><button class="profile-menu-toggle" id="profileMenuToggle" aria-label="Open profile menu" aria-haspopup="true" aria-expanded="false"><span class="avatar avatar-small">AK</span></button><div class="profile-menu-panel" role="menu"><button type="button" role="menuitem" data-page="settings">Account settings</button><button type="button" role="menuitem" data-logout>Sign out</button></div></div></div></header>
+        <div class="page-content" id="pageContent"></div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <dialog id="modal" class="modal"><div id="modalContent"></div></dialog>
+    <div class="ai-widget" id="aiWidget" hidden>
+      <button class="ai-widget-launcher" id="aiWidgetLauncher" type="button" aria-label="Open AI career assistant"><span class="ai-launcher-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4v4"/><circle cx="16" cy="3" r="1.5"/><rect x="7" y="9" width="18" height="15" rx="6"/><path d="M7 14H4v6h3m18-6h3v6h-3"/><circle cx="12.5" cy="16" r="1"/><circle cx="19.5" cy="16" r="1"/><path d="M13 20c1.7 1.5 4.3 1.5 6 0"/></svg></span><span>Ask Orbit</span></button>
+      <section class="ai-widget-panel" id="aiWidgetPanel" aria-label="AI career assistant" hidden>
+        <header class="ai-widget-header" id="aiWidgetHeader"><div class="ai-widget-orb">✦</div><div class="ai-widget-title"><strong>Orbit AI</strong><small>Career assistant</small></div><button class="ai-widget-close" id="aiWidgetClose" type="button" aria-label="Close chat">×</button></header>
+        <div class="ai-widget-messages" id="aiWidgetMessages" aria-live="polite"></div>
+        <form class="ai-widget-compose" id="aiWidgetForm"><textarea id="aiWidgetInput" rows="1" maxlength="2000" placeholder="Ask about your career plan…" aria-label="Message Orbit AI" required></textarea><button type="submit" aria-label="Send message">↑</button></form>
+      </section>
+    </div>
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+    <script src="chat-widget.js"></script>
+  </body>
+</html>
